@@ -1,0 +1,178 @@
+Example usage with `cilium-agent`:
+
+```
+$ buildinfo /go/src/github.com/cilium/cilium/daemon/cilium-agent
+Go binary: /go/src/github.com/cilium/cilium/daemon/cilium-agent
+Compiled with Go version: go1.18.1
+Build settings:
+  -compiler: gc
+  -ldflags: -X "github.com/cilium/cilium/pkg/version.ciliumVersion=1.11.90 266faf3933f9 2022-05-03T12:30:31+02:00" -s -w -X "github.com/cilium/cilium/pkg/envoy.RequiredEnvoyVersionSHA=12e3081cc292764b1308668cab1e7e523429bedc" -X "github.com/cilium/cilium/pkg/datapath/loader.DatapathSHA256=232ba6757b20d0be981f6bb59cd8273aa56a9fde03ed016e3ffa3a7d3e56f6bd" 
+  -tags: osusergo
+  CGO_ENABLED: 0
+  GOARCH: amd64
+  GOOS: linux
+  GOAMD64: v1
+  vcs: git
+  vcs.revision: 266faf3933f9cfba13b2a415dfd56cc30982f2f4
+  vcs.time: 2022-05-03T10:30:31Z
+  vcs.modified: true
+  github.com/armon/go-metrics@v0.3.10 h1:FR+drcQStOe+32sYyJYyZ7FIdgoGGBnwLl+flodp8Uo=
+  github.com/asaskevich/govalidator@v0.0.0-20210307081110-f21760c49a8d h1:Byv0BzEl3/e6D5CLfI0j/7hiIEtvGVFPCZ7Ei2oq8iQ=
+  github.com/aws/aws-sdk-go-v2@v1.16.2 
+  github.com/aws/aws-sdk-go-v2/config@v1.15.3 
+  github.com/aws/aws-sdk-go-v2/credentials@v1.11.2 
+  github.com/aws/aws-sdk-go-v2/feature/ec2/imds@v1.12.3 
+  github.com/aws/aws-sdk-go-v2/internal/configsources@v1.1.9 
+  github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.4.3 
+  github.com/aws/aws-sdk-go-v2/internal/ini@v1.3.10 
+  github.com/aws/aws-sdk-go-v2/service/ec2@v1.34.0 
+  github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.9.3 
+  github.com/aws/aws-sdk-go-v2/service/sso@v1.11.3 
+  github.com/aws/aws-sdk-go-v2/service/sts@v1.16.3 
+  github.com/aws/smithy-go@v1.11.2 h1:eG/N+CcUMAvsdffgMvjMKwfyDzIkjM6pfxMJ8Mzc6mE=
+  github.com/beorn7/perks@v1.0.1 h1:VlbKKnNfV8bJzeqoa4cOKqO6bYr3WgKZxO8Z16+hsOM=
+  github.com/blang/semver/v4@v4.0.0 h1:1PFHFE6yCCTv8C1TeyNNarDzntLi7wMI5i/pzqYIsAM=
+  github.com/census-instrumentation/opencensus-proto@v0.3.0 h1:t/LhUZLVitR1Ow2YOnduCsavhwFUklBMoGVYUCqmCqk=
+  github.com/cespare/xxhash/v2@v2.1.2 h1:YRXhKfTDauu4ajMg1TPgFO5jnlC2HCbmLXMcTG5cbYE=
+  github.com/cilium/ebpf@v0.8.1 h1:bLSSEbBLqGPXxls55pGr5qWZaTqcmfDJHhou7t254ao=
+  github.com/cilium/ipam@v0.0.0-20211026130907-54a76012817c h1:BNplQ8/gUxxF3ISPjM5h6+e/r1lld3VhGEjj2S02/7c=
+  github.com/cilium/lumberjack/v2@v2.2.2 h1:RKTdhb63DY0Xu7pE1pipMj7Zq28LyvBGSrCneHiKm4A=
+  github.com/cilium/proxy@v0.0.0-20220310090216-617157adcd74 h1:y6fqnpfQ4ePgJ56DztfsOUgCJTiCtY2R0gYGcbghQO4=
+  github.com/cncf/xds/go@v0.0.0-20211130200136-a8f946100490 h1:KwaoQzs/WeUxxJqiJsZ4euOly1Az/IgZXXSxlD/UBNk=
+  github.com/containernetworking/cni@v1.1.0 h1:T00oIz4hef+/p9gpRZa57SnIN+QnbmAHBjbxaOSFo9U=
+  github.com/containernetworking/plugins@v1.1.1 h1:+AGfFigZ5TiQH00vhR8qPeSatj53eNGz0C1d3wVYlHE=
+  github.com/coreos/go-semver@v0.3.0 h1:wkHLiw0WNATZnSG7epLsujiMCgPAc9xhjJ4tgnAxmfM=
+  github.com/coreos/go-systemd/v22@v22.3.2 h1:D9/bQk5vlXQFZ6Kwuu6zaiXJ9oTPe68++AzAJc1DzSI=
+  github.com/cpuguy83/go-md2man/v2@v2.0.1 h1:r/myEWzV9lfsM1tFLgDyu0atFtJ1fXn261LKYj/3DxU=
+  github.com/davecgh/go-spew@v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
+  github.com/dgryski/go-farm@v0.0.0-20200201041132-a6ae2369ad13 h1:fAjc9m62+UWV/WAFKLNi6ZS0675eEUC9y3AlwSbQu1Y=
+  github.com/eapache/channels@v1.1.0 h1:F1taHcn7/F0i8DYqKXJnyhJcVpp2kgFcNePxXtnyu4k=
+  github.com/eapache/queue@v1.1.0 h1:YOEu7KNc61ntiQlcEeUIoDTJ2o8mQznoNvUhiigpIqc=
+  github.com/envoyproxy/protoc-gen-validate@v0.6.2 h1:JiO+kJTpmYGjEodY7O1Zk8oZcNz1+f30UtwtXoFUPzE=
+  github.com/fatih/color@v1.13.0 h1:8LOYc1KYPPmyKMuN8QV2DNRWNbLo6LZ0iLs8+mlH53w=
+  github.com/fsnotify/fsnotify@v1.5.4 h1:jRbGcIw6P2Meqdwuo0H1p6JVLbL5DHKAKlYndzMwVZI=
+  github.com/go-kit/kit@v0.12.0 h1:e4o3o3IsBfAKQh5Qbbiqyfu97Ku7jrO/JbohvztANh4=
+  github.com/go-kit/log@v0.2.0 h1:7i2K3eKTos3Vc0enKCfnVcgHh2olr/MyfboYq7cAcFw=
+  github.com/go-logfmt/logfmt@v0.5.1 h1:otpy5pqBCBZ1ng9RQ0dPu4PN7ba75Y/aA+UpowDyNVA=
+  github.com/go-logr/logr@v1.2.0 h1:QK40JKJyMdUDz+h+xvCsru/bJhvG0UxvePV0ufL/AcE=
+  github.com/go-openapi/analysis@v0.21.2 h1:hXFrOYFHUAMQdu6zwAiKKJHJQ8kqZs1ux/ru1P1wLJU=
+  github.com/go-openapi/errors@v0.20.2 h1:dxy7PGTqEh94zj2E3h1cUmQQWiM1+aeCROfAr02EmK8=
+  github.com/go-openapi/jsonpointer@v0.19.5 h1:gZr+CIYByUqjcgeLXnQu2gHYQC9o73G2XUeOFYEICuY=
+  github.com/go-openapi/jsonreference@v0.20.0 h1:MYlu0sBgChmCfJxxUKZ8g1cPWFOB37YSZqewK7OKeyA=
+  github.com/go-openapi/loads@v0.21.1 h1:Wb3nVZpdEzDTcly8S4HMkey6fjARRzb7iEaySimlDW0=
+  github.com/go-openapi/runtime@v0.24.0 h1:vTgDijpGLCgJOJTdAp5kG+O+nRsVCbH417YQ3O0iZo0=
+  github.com/go-openapi/spec@v0.20.5 h1:skHa8av4VnAtJU5zyAUXrrdK/NDiVX8lchbG+BfcdrE=
+  github.com/go-openapi/strfmt@v0.21.2 h1:5NDNgadiX1Vhemth/TH4gCGopWSTdDjxl60H3B7f+os=
+  github.com/go-openapi/swag@v0.21.1 h1:wm0rhTb5z7qpJRHBdPOMuY4QjVUMbF6/kwoYeRAOrKU=
+  github.com/go-openapi/validate@v0.21.0 h1:+Wqk39yKOhfpLqNLEC0/eViCkzM5FVXVqrvt526+wcI=
+  github.com/go-stack/stack@v1.8.1 h1:ntEHSVwIt7PNXNpgPmVfMrNhLtgjlmnZha2kOpuRiDw=
+  github.com/gogo/protobuf@v1.3.2 h1:Ov1cvc58UF3b5XjBnZv7+opcTcQFZebYjWzi34vdm4Q=
+  github.com/golang/groupcache@v0.0.0-20210331224755-41bb18bfe9da h1:oI5xCqsCo564l8iNU+DwB5epxmsaqB+rhGL0m5jtYqE=
+  github.com/golang/protobuf@v1.5.2 h1:ROPKBNFfQgOUMifHyP+KYbvpjbdoFNs+aK7DXlji0Tw=
+  github.com/google/go-cmp@v0.5.8 h1:e6P7q2lk1O+qJJb4BtCQXlK8vWEO8V1ZeuEdJNOqZyg=
+  github.com/google/gofuzz@v1.2.0 h1:xRy4A+RhZaiKjJ1bPfwQ8sedCA+YS2YcCHW6ec7JMi0=
+  github.com/google/gopacket@v1.1.19 h1:ves8RnFZPGiFnTS0uPQStjwru6uO6h+nlr9j6fL7kF8=
+  github.com/google/gops@v0.3.22 h1:lyvhDxfPLHAOR2xIYwjPhN387qHxyU21Sk9sz/GhmhQ=
+  github.com/google/renameio@v1.0.1 h1:Lh/jXZmvZxb0BBeSY5VKEfidcbcbenKjZFzM/q0fSeU=
+  github.com/google/uuid@v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
+  github.com/googleapis/gnostic@v0.5.5 h1:9fHAtK0uDfpveeqqo1hkEZJcFvYXAiCN3UutL8F9xHw=
+  github.com/hashicorp/consul/api@v1.12.0 h1:k3y1FYv6nuKyNTqj6w9gXOx5r5CfLj/k/euUeBXj1OY=
+  github.com/hashicorp/go-cleanhttp@v0.5.2 h1:035FKYIWjmULyFRBKPs8TBQoi0x6d9G4xc9neXJWAZQ=
+  github.com/hashicorp/go-hclog@v1.2.0 h1:La19f8d7WIlm4ogzNHB0JGqs5AUDAZ2UfCY4sJXcJdM=
+  github.com/hashicorp/go-immutable-radix@v1.3.1 h1:DKHmCUm2hRBK510BaiZlwvpD40f8bJFeZnpfm2KLowc=
+  github.com/hashicorp/go-rootcerts@v1.0.2 h1:jzhAVGtqPKbwpyCPELlgNWhE1znq+qwJtW5Oi2viEzc=
+  github.com/hashicorp/golang-lru@v0.5.4 h1:YDjusn29QI/Das2iO9M0BHnIbxPeyuCHsjMW+lJfyTc=
+  github.com/hashicorp/hcl@v1.0.0 h1:0Anlzjpi4vEasTeNFn2mLJgTSwt0+6sfsiTG8qcWGx4=
+  github.com/hashicorp/serf@v0.9.7 h1:hkdgbqizGQHuU5IPqYM1JdSMV8nKfpuOnZYXssk9muY=
+  github.com/imdario/mergo@v0.3.12 h1:b6R2BslTbIEToALKP7LxUvijTsNI9TAe80pLWN2g/HU=
+  github.com/jmespath/go-jmespath@v0.4.0 h1:BEgLn5cpjn8UN1mAw4NjwDrS35OdebyEtFe+9YPoQUg=
+  github.com/josharian/intern@v1.0.0 h1:vlS4z54oSdjm0bgjRigI+G1HpF+tI+9rE5LLzOg8HmY=
+  github.com/josharian/native@v0.0.0-20200817173448-b6b71def0850 h1:uhL5Gw7BINiiPAo24A2sxkcDI0Jt/sqp1v5xQCniEFA=
+  github.com/json-iterator/go@v1.1.12 h1:PV8peI4a0ysnczrg+LtxykD8LfKY9ML6u2jnxaEnrnM=
+  github.com/k-sone/critbitgo@v1.4.0 h1:l71cTyBGeh6X5ATh6Fibgw3+rtNT80BA0uNNWgkPrbE=
+  github.com/kr/pretty@v0.3.0 h1:WgNl7dwNpEZ6jJ9k1snq4pZsg7DOEN8hP9Xw0Tsjwk0=
+  github.com/kr/text@v0.2.0 h1:5Nx0Ya0ZqY2ygV366QzturHI13Jq95ApcVaJBhpS+AY=
+  github.com/magiconair/properties@v1.8.6 h1:5ibWZ6iY0NctNGWo87LalDlEZ6R41TqbbDamhfG/Qzo=
+  github.com/mailru/easyjson@v0.7.7 h1:UGYAvKxe3sBsEDzO8ZeWOSlIQfWFlxbzLZe7hwFURr0=
+  github.com/mattn/go-colorable@v0.1.12 h1:jF+Du6AlPIjs2BiUiQlKOX0rt3SujHxPnksPKZbaA40=
+  github.com/mattn/go-isatty@v0.0.14 h1:yVuAays6BHfxijgZPzw+3Zlu5yQgKGP2/hcQbHb7S9Y=
+  github.com/mattn/go-shellwords@v1.0.12 h1:M2zGm7EW6UQJvDeQxo4T51eKPurbeFbe8WtebGE2xrk=
+  github.com/matttproud/golang_protobuf_extensions@v1.0.2-0.20181231171920-c182affec369 h1:I0XW9+e1XWDxdcEniV4rQAIOPUGDq67JSCiRCgGCZLI=
+  github.com/mdlayher/arp@v0.0.0-20191213142603-f72070a231fc h1:m7rJJJeXrYCFpsxXYapkDW53wJCDmf9bsIXUg0HoeQY=
+  github.com/mdlayher/ethernet@v0.0.0-20190606142754-0394541c37b7 h1:lez6TS6aAau+8wXUP3G9I3TGlmPFEq2CTxBaRqY6AGE=
+  github.com/mdlayher/genetlink@v1.0.0 h1:OoHN1OdyEIkScEmRgxLEe2M9U8ClMytqA5niynLtfj0=
+  github.com/mdlayher/ndp@v0.0.0-20200602162440-17ab9e3e5567 h1:x+xs91ZJ+lr0C6sedWeREvck4uGCt+AA1kKXwsHB6jI=
+  github.com/mdlayher/netlink@v1.4.1 h1:I154BCU+mKlIf7BgcAJB2r7QjveNPty6uNY1g9ChVfI=
+  github.com/mdlayher/raw@v0.0.0-20210412142147-51b895745faf h1:InctQoB89TIkmgIFQeIL4KXNvWc1iebQXdZggqPSwL8=
+  github.com/mdlayher/socket@v0.0.0-20211102153432-57e3fa563ecb h1:2dC7L10LmTqlyMVzFJ00qM25lqESg9Z4u3GuEXN5iHY=
+  github.com/miekg/dns@v1.1.43 
+    replaced by github.com/cilium/dns@v1.1.4-0.20190417235132-8e25ec9a0ff3 h1:wenYMyWJ08dgEUUj0Ija8qdK/V9vL3ThAD5sjOYlFlg=
+  github.com/mikioh/ipaddr@v0.0.0-20190404000644-d465c8ab6721 h1:RlZweED6sbSArvlE924+mUcZuXKLBHA35U7LN621Bws=
+  github.com/mitchellh/mapstructure@v1.4.3 h1:OVowDSCllw/YjdLkam3/sm7wEtOy59d8ndGgCcyj8cs=
+  github.com/modern-go/concurrent@v0.0.0-20180306012644-bacd9c7ef1dd h1:TRLaZ9cD/w8PVh93nsPXa1VrQ6jlwL5oN8l14QlcNfg=
+  github.com/modern-go/reflect2@v1.0.2 h1:xBagoLtFs94CBntxluKeaWgTMpvLxC4ur3nMaC9Gz0M=
+  github.com/oklog/ulid@v1.3.1 h1:EGfNDEx6MqHz8B3uNV6QAib1UR2Lm97sHi3ocA6ESJ4=
+  github.com/opentracing/opentracing-go@v1.2.0 h1:uEJPy/1a5RIPAJ0Ov+OIO8OxWu77jEv+1B0VhjKrZUs=
+  github.com/osrg/gobgp/v3@v3.1.0 h1:mnAPYsx4V0xPpbDJL0r1qmU6FvoXg7R7ZHfb4kJSaSU=
+  github.com/pelletier/go-toml@v1.9.4 h1:tjENF6MfZAg8e4ZmZTeWaWiT2vXtsoO6+iuOjFhECwM=
+  github.com/petermattis/goid@v0.0.0-20180202154549-b0b1615b78e5 h1:q2e307iGHPdTGp0hoxKjt1H5pDo6utceo3dQVK3I5XQ=
+  github.com/pmezard/go-difflib@v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
+  github.com/prometheus/client_golang@v1.11.1 h1:+4eQaD7vAZ6DsfsxB15hbE0odUjGI5ARs9yskGu1v4s=
+  github.com/prometheus/client_model@v0.2.1-0.20210607210712-147c58e9608a h1:CmF68hwI0XsOQ5UwlBopMi2Ow4Pbg32akc4KIVCOm+Y=
+  github.com/prometheus/common@v0.32.1 h1:hWIdL3N2HoUx3B8j3YN9mWor0qhY/NlEKZEaXxuIRh4=
+  github.com/prometheus/procfs@v0.7.3 h1:4jVXhlkAyzOScmCkXBTOLRLTz8EeU+eyjrwB/EPq0VU=
+  github.com/rogpeppe/go-internal@v1.8.0 h1:FCbCCtXNOY3UtUuHUYaghJg4y7Fd14rXifAYUAtL9R8=
+  github.com/russross/blackfriday/v2@v2.1.0 h1:JIOH55/0cWyOuilr9/qlrm0BSXldqnqwMsf35Ld67mk=
+  github.com/sasha-s/go-deadlock@v0.3.1 h1:sqv7fDNShgjcaxkO0JNcOAlr8B9+cV5Ey/OB71efZx0=
+  github.com/servak/go-fastping@v0.0.0-20160802140958-5718d12e20a0 h1:FFgMDF0otYdRIy7stdzyE6l1mbyw16XtOWXn6NJ8bEU=
+  github.com/shirou/gopsutil/v3@v3.22.3 h1:UebRzEomgMpv61e3hgD1tGooqX5trFbdU/ehphbHd00=
+  github.com/sirupsen/logrus@v1.8.1 h1:dJKuHgqk1NNQlqoA6BTlM1Wf9DOH3NBjQyu0h9+AZZE=
+  github.com/spf13/afero@v1.8.2 h1:xehSyVa0YnHWsJ49JFljMpg1HX19V6NDZ1fkm1Xznbo=
+  github.com/spf13/cast@v1.4.1 h1:s0hze+J0196ZfEMTs80N7UlFt0BDuQ7Q+JDnHiMWKdA=
+  github.com/spf13/cobra@v1.4.0 h1:y+wJpx64xcgO1V+RcnwW0LEHxTKRi2ZDPSBjWnrg88Q=
+  github.com/spf13/jwalterweatherman@v1.1.0 h1:ue6voC5bR5F8YxI5S67j9i582FU4Qvo2bmqnqMYADFk=
+  github.com/spf13/pflag@v1.0.5 h1:iy+VFUOCP1a+8yFto/drg2CJ5u0yRoB7fZw3DKv/JXA=
+  github.com/spf13/viper@v1.11.0 h1:7OX/1FS6n7jHD1zGrZTM7WtY13ZELRyosK4k93oPr44=
+  github.com/subosito/gotenv@v1.2.0 h1:Slr1R9HxAlEKefgq5jn9U+DnETlIUa6HfgEzj0g5d7s=
+  github.com/tklauser/go-sysconf@v0.3.10 h1:IJ1AZGZRWbY8T5Vfk04D9WOA5WSejdflXxP03OUqALw=
+  github.com/tklauser/numcpus@v0.4.0 h1:E53Dm1HjH1/R2/aoCtXtPgzmElmn51aOkhCFSuZq//o=
+  github.com/vishvananda/netlink@v1.1.1-0.20220125195016-0639e7e787ba h1:MU5oPE25XZhDS8Z0xFG0/1ERBEu5rZIw62TImubLusU=
+  github.com/vishvananda/netns@v0.0.0-20211101163701-50045581ed74 h1:gga7acRE695APm9hlsSMoOoE65U4/TcqNj90mc69Rlg=
+  gitlab.com/golang-commonmark/puny@v0.0.0-20191124015043-9f83538fa04f h1:Wku8eEdeJqIOFHtrfkYUByc4bCaTeA6fL0UJgfEiFMI=
+  go.etcd.io/etcd/api/v3@v3.5.4 h1:OHVyt3TopwtUQ2GKdd5wu3PmmipR4FTwCqoEjSyRdIc=
+  go.etcd.io/etcd/client/pkg/v3@v3.5.4 h1:lrneYvz923dvC14R54XcA7FXoZ3mlGZAgmwhfm7HqOg=
+  go.etcd.io/etcd/client/v3@v3.5.4 h1:p83BUL3tAYS0OT/r0qglgc3M1JjhM0diV8DSWAhVXv4=
+  go.mongodb.org/mongo-driver@v1.8.3 h1:TDKlTkGDKm9kkJVUOAXDK5/fkqKHJVwYQSpoRfB43R4=
+  go.uber.org/atomic@v1.9.0 h1:ECmE8Bn/WFTYwEW/bpKD3M8VtR/zQVbavAoalC1PYyE=
+  go.uber.org/multierr@v1.8.0 h1:dg6GjLku4EH+249NNmoIciG9N/jURbDG+pFlTkhzIC8=
+  go.uber.org/zap@v1.19.1 h1:ue41HOKd1vGURxrmeKIgELGb3jPW9DMUDGtsinblHwI=
+  go.universe.tf/metallb@v0.11.0 
+    replaced by github.com/cilium/metallb@v0.1.1-0.20210831235406-48667b93284d h1:skjwi8X3DdLWRI4AFmiAn83ruNoAw4f2kvdBlM8EI8c=
+  golang.org/x/crypto@v0.0.0-20220411220226-7b82a4e95df4 h1:kUhD7nTDoI3fVd9G4ORWrbV5NY0liEs/Jg2pv5f+bBA=
+  golang.org/x/net@v0.0.0-20220412020605-290c469a71a5 h1:bRb386wvrE+oBNdF1d/Xh9mQrfQ4ecYhW5qJ5GvTGT4=
+  golang.org/x/oauth2@v0.0.0-20220411215720-9780585627b5 h1:OSnWWcOd/CtWQC2cYSBgbTSJv3ciqd8r54ySIW2y3RE=
+  golang.org/x/sync@v0.0.0-20210220032951-036812b2e83c h1:5KslGYwFpkhGh+Q16bwMP3cOontH8FOep7tGV86Y7SQ=
+  golang.org/x/sys@v0.0.0-20220412211240-33da011f77ad h1:ntjMns5wyP/fN65tdBD4g8J5w8n015+iIIs9rtjXkY0=
+  golang.org/x/term@v0.0.0-20210927222741-03fcf44c2211 h1:JGgROgKl9N8DuW20oFS5gxc+lE67/N3FcwmBPMe7ArY=
+  golang.org/x/text@v0.3.7 h1:olpwvP2KacW1ZWvsR7uQhoyTYvKAupfQrRGBFM352Gk=
+  golang.org/x/time@v0.0.0-20210723032227-1f47c861a9ac h1:7zkz7BUtwNFFqcowJ+RIgu2MaV/MapERkDIy+mwPyjs=
+  golang.zx2c4.com/wireguard@v0.0.0-20211017052713-f87e87af0d9a h1:tTbyylK9/D3u/wEP26Vx7L700UpY48nhioJWZM1vhZw=
+  golang.zx2c4.com/wireguard/wgctrl@v0.0.0-20211027115401-c9b1ec1aa6d8 h1:5Qw4mAZBeNAX5ubJtVvzUmUJ/Zsl7wzwXRz8MrjYJaY=
+  google.golang.org/genproto@v0.0.0-20220407144326-9054f6ed7bac h1:qSNTkEN+L2mvWcLgJOR+8bdHX9rN/IdU3A1Ghpfb1Rg=
+  google.golang.org/grpc@v1.46.0 h1:oCjezcn6g6A75TGoKYBPgKmVBLexhYLM6MebdrPApP8=
+  google.golang.org/protobuf@v1.28.0 h1:w43yiav+6bVFTBQFZX0r7ipe9JQ1QsbMgHwbBziscLw=
+  gopkg.in/inf.v0@v0.9.1 h1:73M5CoZyi3ZLMOyDlQh031Cx6N9NDJ2Vvfl76EDAgDc=
+  gopkg.in/ini.v1@v1.66.4 h1:SsAcf+mM7mRZo2nJNGt8mZCjG8ZRaNGMURJw7BsIST4=
+  gopkg.in/yaml.v2@v2.4.0 h1:D8xgwECY7CYvx+Y2n4sBz93Jn9JRvxdiyyo8CTfuKaY=
+  gopkg.in/yaml.v3@v3.0.0-20210107192922-496545a6307b h1:h8qDotaEPuJATrMmW04NCwg7v22aHH28wwpauUhK9Oo=
+  k8s.io/api@v0.23.3 h1:KNrME8KHGr12Ozjf8ytOewKzZh6hl/hHUZeHddT3a38=
+  k8s.io/apiextensions-apiserver@v0.23.3 h1:JvPJA7hSEAqMRteveq4aj9semilAZYcJv+9HHFWfUdM=
+  k8s.io/apimachinery@v0.23.3 h1:7IW6jxNzrXTsP0c8yXz2E5Yx/WTzVPTsHIx/2Vm0cIk=
+  k8s.io/client-go@v0.23.3 h1:23QYUmCQ/W6hW78xIwm3XqZrrKZM+LWDqW2zfo+szJs=
+  k8s.io/klog/v2@v2.30.0 h1:bUO6drIvCIsvZ/XFgfxoGFQU/a4Qkh0iAlvUR7vlHJw=
+  k8s.io/kube-openapi@v0.0.0-20211115234752-e816edb12b65 h1:E3J9oCLlaobFUqsjG9DfKbP2BmgwBL2p7pn0A3dG9W4=
+  k8s.io/utils@v0.0.0-20211116205334-6203023598ed h1:ck1fRPWPJWsMd8ZRFsWc6mh/zHp5fZ/shhbrgPUxDAE=
+  sigs.k8s.io/json@v0.0.0-20211020170558-c049b76a60c6 h1:fD1pz4yfdADVNfFmcP2aBEtudwUQ1AlLnRBALr33v3s=
+  sigs.k8s.io/structured-merge-diff/v4@v4.2.1 h1:bKCqE9GvQ5tiVHn5rfn1r+yao3aLQEaLzkkmAkf+A6Y=
+  sigs.k8s.io/yaml@v1.3.0 h1:a2VclLzOGrwOHDiV8EfBGhvjHvP46CtW5j6POvhYGGo=
+```

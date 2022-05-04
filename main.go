@@ -30,6 +30,7 @@ func main() {
 		for _, s := range info.Settings {
 			fmt.Printf("  %s: %s\n", s.Key, s.Value)
 		}
+		fmt.Printf("Dependencies:\n")
 		for _, d := range info.Deps {
 			fmt.Printf("  %s@%s %s\n", d.Path, d.Version, d.Sum)
 			if r := d.Replace; r != nil {

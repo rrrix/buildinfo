@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/tklauser/buildinfo/apackage"
+	apackage "github.com/tklauser/buildinfo/apackage"
 	"os"
 )
 

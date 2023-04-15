@@ -1,4 +1,3 @@
 package replacement
 
-type Replacement struct{}
-
+type AStruct struct{}

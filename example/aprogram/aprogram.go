@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	apackage "github.com/tklauser/buildinfo/apackage"
 	"os"
+
+	apackage "github.com/tklauser/buildinfo/apackage"
 )
 
 func main() {
-
 	as := apackage.AStruct{}
 
 	fmt.Fprintln(os.Stderr, as)

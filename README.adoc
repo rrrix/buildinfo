@@ -1,12 +1,88 @@
-Example usage with `cilium-agent`:
+= Go BuildInfo CLI
+:authors: Rick Bowen <https://github.com/rrrix>, Tobias Klauser <https://github.com/tklauser/>
+:license: MPL-2.0
+:description: Show Go Binary build metadata using the Go standard library runtime/debug.BuildInfo struct.
 
-```
+Go BuildInfo CLI (`buildinfo`) extracts and prints the https://pkg.go.dev/runtime/debug#BuildInfo[`BuildInfo`] struct from a compiled go binary.
+
+The entire BuildInfo struct and its subfields are printed to standard out, which includes:
+
+- BuildSettings
+
+A _BuildSetting_ is a key-value pair describing one setting that influenced a build.
+
+Defined keys include:
+
+---
+-buildmode: the buildmode flag used (typically "exe")
+-compiler: the compiler toolchain flag used (typically "gc")
+CGO_ENABLED: the effective CGO_ENABLED environment variable
+CGO_CFLAGS: the effective CGO_CFLAGS environment variable
+CGO_CPPFLAGS: the effective CGO_CPPFLAGS environment variable
+CGO_CXXFLAGS: the effective CGO_CXXFLAGS environment variable
+CGO_LDFLAGS: the effective CGO_LDFLAGS environment variable
+GOARCH: the architecture target
+GOAMD64/GOARM/GO386/etc: the architecture feature level for GOARCH
+GOOS: the operating system target
+vcs: the version control system for the source tree where the build ran
+vcs.revision: the revision identifier for the current commit or checkout
+vcs.time: the modification time associated with vcs.revision, in RFC3339 format
+vcs.modified: true or false indicating whether the source tree had local modifications
+---
+
+== Install & Run
+
+IMPORTANT: Requires go >= 1.18
+
+Install `buildinfo` into your `$GOBIN` (or `$GOROOT/bin`).
+
+[sources,shell]
+----
+$ go install github.com/rrrix/buildinfo@latest
+$ buildinfo /path/to/compiled/go-binary
+----
+
+== Build
+
+* Clone the repository
+* Build with `task`
+
+NOTE: Install the Taskfile binary `task`: <https://taskfile.dev/installation/>
+
+.Task Runner
+[%collapsible]
+====
+
+Homebrew:
+----
+brew install go-task/tap/go-task
+----
+
+Build from source:
+----
+go install github.com/go-task/task/v3/cmd/task@latest
+----
+====
+
+[sources,shell]
+----
+$ git clone https://github.com/rrrix/buildinfo.git buildinfo
+$ cd buildinfo
+$ task -v all
+----
+
+== Example: `cilium-agent`
+
+Example usage with `cilium-agent` from the https://github.com/cilium/cilium/[Cillium Project].
+
+[source]
+----
 $ buildinfo /go/src/github.com/cilium/cilium/daemon/cilium-agent
 Go binary: /go/src/github.com/cilium/cilium/daemon/cilium-agent
 Compiled with Go version: go1.18.1
 Build settings:
   -compiler: gc
-  -ldflags: -X "github.com/cilium/cilium/pkg/version.ciliumVersion=1.11.90 266faf3933f9 2022-05-03T12:30:31+02:00" -s -w -X "github.com/cilium/cilium/pkg/envoy.RequiredEnvoyVersionSHA=12e3081cc292764b1308668cab1e7e523429bedc" -X "github.com/cilium/cilium/pkg/datapath/loader.DatapathSHA256=232ba6757b20d0be981f6bb59cd8273aa56a9fde03ed016e3ffa3a7d3e56f6bd" 
+  -ldflags: -X "github.com/cilium/cilium/pkg/version.ciliumVersion=1.11.90 266faf3933f9 2022-05-03T12:30:31+02:00" -s -w -X "github.com/cilium/cilium/pkg/envoy.RequiredEnvoyVersionSHA=12e3081cc292764b1308668cab1e7e523429bedc" -X "github.com/cilium/cilium/pkg/datapath/loader.DatapathSHA256=232ba6757b20d0be981f6bb59cd8273aa56a9fde03ed016e3ffa3a7d3e56f6bd"
   -tags: osusergo
   CGO_ENABLED: 0
   GOARCH: amd64
@@ -18,17 +94,17 @@ Build settings:
   vcs.modified: true
   github.com/armon/go-metrics@v0.3.10 h1:FR+drcQStOe+32sYyJYyZ7FIdgoGGBnwLl+flodp8Uo=
   github.com/asaskevich/govalidator@v0.0.0-20210307081110-f21760c49a8d h1:Byv0BzEl3/e6D5CLfI0j/7hiIEtvGVFPCZ7Ei2oq8iQ=
-  github.com/aws/aws-sdk-go-v2@v1.16.2 
-  github.com/aws/aws-sdk-go-v2/config@v1.15.3 
-  github.com/aws/aws-sdk-go-v2/credentials@v1.11.2 
-  github.com/aws/aws-sdk-go-v2/feature/ec2/imds@v1.12.3 
-  github.com/aws/aws-sdk-go-v2/internal/configsources@v1.1.9 
-  github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.4.3 
-  github.com/aws/aws-sdk-go-v2/internal/ini@v1.3.10 
-  github.com/aws/aws-sdk-go-v2/service/ec2@v1.34.0 
-  github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.9.3 
-  github.com/aws/aws-sdk-go-v2/service/sso@v1.11.3 
-  github.com/aws/aws-sdk-go-v2/service/sts@v1.16.3 
+  github.com/aws/aws-sdk-go-v2@v1.16.2
+  github.com/aws/aws-sdk-go-v2/config@v1.15.3
+  github.com/aws/aws-sdk-go-v2/credentials@v1.11.2
+  github.com/aws/aws-sdk-go-v2/feature/ec2/imds@v1.12.3
+  github.com/aws/aws-sdk-go-v2/internal/configsources@v1.1.9
+  github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.4.3
+  github.com/aws/aws-sdk-go-v2/internal/ini@v1.3.10
+  github.com/aws/aws-sdk-go-v2/service/ec2@v1.34.0
+  github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.9.3
+  github.com/aws/aws-sdk-go-v2/service/sso@v1.11.3
+  github.com/aws/aws-sdk-go-v2/service/sts@v1.16.3
   github.com/aws/smithy-go@v1.11.2 h1:eG/N+CcUMAvsdffgMvjMKwfyDzIkjM6pfxMJ8Mzc6mE=
   github.com/beorn7/perks@v1.0.1 h1:VlbKKnNfV8bJzeqoa4cOKqO6bYr3WgKZxO8Z16+hsOM=
   github.com/blang/semver/v4@v4.0.0 h1:1PFHFE6yCCTv8C1TeyNNarDzntLi7wMI5i/pzqYIsAM=
@@ -105,7 +181,7 @@ Build settings:
   github.com/mdlayher/netlink@v1.4.1 h1:I154BCU+mKlIf7BgcAJB2r7QjveNPty6uNY1g9ChVfI=
   github.com/mdlayher/raw@v0.0.0-20210412142147-51b895745faf h1:InctQoB89TIkmgIFQeIL4KXNvWc1iebQXdZggqPSwL8=
   github.com/mdlayher/socket@v0.0.0-20211102153432-57e3fa563ecb h1:2dC7L10LmTqlyMVzFJ00qM25lqESg9Z4u3GuEXN5iHY=
-  github.com/miekg/dns@v1.1.43 
+  github.com/miekg/dns@v1.1.43
     replaced by github.com/cilium/dns@v1.1.4-0.20190417235132-8e25ec9a0ff3 h1:wenYMyWJ08dgEUUj0Ija8qdK/V9vL3ThAD5sjOYlFlg=
   github.com/mikioh/ipaddr@v0.0.0-20190404000644-d465c8ab6721 h1:RlZweED6sbSArvlE924+mUcZuXKLBHA35U7LN621Bws=
   github.com/mitchellh/mapstructure@v1.4.3 h1:OVowDSCllw/YjdLkam3/sm7wEtOy59d8ndGgCcyj8cs=
@@ -146,7 +222,7 @@ Build settings:
   go.uber.org/atomic@v1.9.0 h1:ECmE8Bn/WFTYwEW/bpKD3M8VtR/zQVbavAoalC1PYyE=
   go.uber.org/multierr@v1.8.0 h1:dg6GjLku4EH+249NNmoIciG9N/jURbDG+pFlTkhzIC8=
   go.uber.org/zap@v1.19.1 h1:ue41HOKd1vGURxrmeKIgELGb3jPW9DMUDGtsinblHwI=
-  go.universe.tf/metallb@v0.11.0 
+  go.universe.tf/metallb@v0.11.0
     replaced by github.com/cilium/metallb@v0.1.1-0.20210831235406-48667b93284d h1:skjwi8X3DdLWRI4AFmiAn83ruNoAw4f2kvdBlM8EI8c=
   golang.org/x/crypto@v0.0.0-20220411220226-7b82a4e95df4 h1:kUhD7nTDoI3fVd9G4ORWrbV5NY0liEs/Jg2pv5f+bBA=
   golang.org/x/net@v0.0.0-20220412020605-290c469a71a5 h1:bRb386wvrE+oBNdF1d/Xh9mQrfQ4ecYhW5qJ5GvTGT4=
@@ -175,4 +251,12 @@ Build settings:
   sigs.k8s.io/json@v0.0.0-20211020170558-c049b76a60c6 h1:fD1pz4yfdADVNfFmcP2aBEtudwUQ1AlLnRBALr33v3s=
   sigs.k8s.io/structured-merge-diff/v4@v4.2.1 h1:bKCqE9GvQ5tiVHn5rfn1r+yao3aLQEaLzkkmAkf+A6Y=
   sigs.k8s.io/yaml@v1.3.0 h1:a2VclLzOGrwOHDiV8EfBGhvjHvP46CtW5j6POvhYGGo=
-```
+----
+
+== Contribute
+
+Bug Reports, Enhancement/Feature Requests, and Pull Requests are welcome, however no guarantee is made of these being addressed in a timely manner.
+
+== Acknowledgements
+
+Tobias Klauser <https://github.com/tklauser/> made the initial revision of this program. Thank you Tobias!

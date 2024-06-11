@@ -1,5 +1,3 @@
-// Playing around with https://pkg.go.dev/debug/buildinfo
-
 package main
 
 import (
@@ -10,11 +8,6 @@ import (
 	"path/filepath"
 	"runtime/debug"
 )
-
-var BuildDate = "1970-01-01T00:00:00Z"
-var GitCommit = "UnsetVar"
-var GitSummary = "UnsetVar"
-var GitBranch = "UnsetVar"
 
 type BuildInfoFlags struct {
 	self          *bool // display this binary's own build info

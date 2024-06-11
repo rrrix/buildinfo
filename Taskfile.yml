@@ -1,0 +1,151 @@
+version: "3"
+
+env:
+  CGO_ENABLED: 0
+
+vars:
+  min_go_version: 1.18
+  buildflags: |-
+    -buildvcs=true -mod=mod -modcacherw
+  program:
+    sh: |-
+      basename $(go list)
+  modname:
+    sh: go list
+  GOPATH:
+    sh: |-
+      go env GOPATH
+  GOENVBIN:
+    sh: |-
+      go env GOBIN
+  GOBIN: |-
+    {{ list .GOPATH "bin" | join "/" | default .GOENVBIN }}
+
+run: once
+
+tasks:
+  default:
+    silent: true
+    aliases: ["help", "list"]
+    cmds:
+      - task --list
+
+  all:
+    desc: "Build and Test"
+    cmds:
+      - task: test
+      - task: build
+
+  mod-download:
+    desc: "Download go modules"
+    deps:
+      - go-version-check
+    cmds:
+      - go mod download
+    status:
+      - |-
+        [[ $(go mod graph | grep -E -v "$(go list) go@[01]\\.[0-9]+\$" | wc -l) -eq 0 ]]
+
+  lint:
+    desc: "Run linters & formattings"
+    deps:
+      - mod-download
+    cmds:
+      - cmd: go vet
+      - cmd: go fix
+      - task: gofumpt
+      - task: goimports
+
+  test:
+    desc: "Run tests"
+    deps:
+      - lint
+    cmds:
+      - cmd: go test ./... -fullpath
+
+  build:
+    desc: "Build the project"
+    deps:
+      - lint
+    cmds:
+      - cmd: go build -o {{.program}} {{.buildflags}}
+    sources: ["*.go", "**/*.go", "go.mod", "go.sum"]
+
+  mod-tidy:
+    desc: "Tidy go.mod/go.sum to match source code dependencies"
+    deps:
+      - go-version-check
+    cmds:
+      - cmd: go mod tidy
+
+  mod-update:
+    desc: "update go modules to latest available version"
+    deps:
+      - go-version-check
+    cmds:
+      - cmd: go get -u
+    status:
+      - |-
+        [[ $(go mod graph | grep -E -v "$(go list)"' go@[01]\.[0-9]+$' | wc -l) -eq 0 ]]
+
+  clean:
+    desc: "Clean build artifacts"
+    deps:
+      - go-version-check
+    cmds:
+      - cmd: go clean
+      - cmd: rm -rf dist/
+    method: none
+
+  rebuild:
+    desc: "Completely clean and rebuild the project"
+    deps:
+      - clean
+    cmds:
+      - task: build
+    method: none
+
+  install:
+    desc: "Install {{.PROG}} into $"
+    deps:
+      - lint
+    cmds:
+      - cmd: go install main.go ${buildflags}
+    sources: ["*.go", "**/*.go", "go.mod", "go.sum"]
+    method: none
+
+  run:
+    deps:
+      - lint
+    cmds:
+      - cmd: go run main.go {{ default .CLI_ARGS "--help" }}
+    method: none
+
+  go-version-check:
+    silent: true
+    # internal: true
+    cmd: |-
+      printf "%s\n" "go version go{{.min_go_version}}" "$(go version)" | \
+      sort --version-sort --check=silent
+
+  gofumpt:
+    cmd: gofumpt -l -w .
+    internal: true
+    preconditions:
+      - command -v gofumpt
+
+  goimports:
+    cmd: goimports -w .
+    internal: true
+    preconditions:
+      - command -v goimports
+
+  install-formatters:
+    desc: "Install golang.org/x/tools/cmd/goimports and github.com/mvdan/gofumpt"
+    deps:
+      - go-version-check
+    cmds:
+      - cmd: |-
+          go install golang.org/x/tools/cmd/goimports@latest {{.buildflags}}
+      - cmd: |-
+          go install github.com/mvdan/gofumpt@latest {{.buildflags}}

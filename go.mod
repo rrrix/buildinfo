@@ -1,3 +1,3 @@
-module github.com/tklauser/buildinfo
+module github.com/rrrix/buildinfo
 
 go 1.18

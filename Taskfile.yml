@@ -70,6 +70,7 @@ tasks:
     cmds:
       - cmd: go build -o {{.program}} {{.buildflags}}
     sources: ["*.go", "**/*.go", "go.mod", "go.sum"]
+    generates: ["{{.program}}"]
 
   mod-tidy:
     desc: "Tidy go.mod/go.sum to match source code dependencies"
@@ -94,7 +95,7 @@ tasks:
       - go-version-check
     cmds:
       - cmd: go clean
-      - cmd: rm -rf dist/
+      - cmd: rm -v {{.program}}
     method: none
 
   rebuild:
@@ -118,7 +119,7 @@ tasks:
     deps:
       - lint
     cmds:
-      - cmd: go run main.go {{ default .CLI_ARGS "--help" }}
+      - cmd: go run main.go {{ default "--help" .CLI_ARGS }}
     method: none
 
   go-version-check:
